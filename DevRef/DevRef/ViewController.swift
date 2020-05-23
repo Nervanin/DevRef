@@ -24,9 +24,10 @@ class ViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath )
+      let patternsIteam = patternsName[indexPath.row]
         
-        cell.textLabel?.text = patternsName[indexPath.row]
-        cell.imageView?.image = UIImage(named: patternsName[indexPath.row])
+        cell.textLabel?.text = patternsIteam
+        cell.imageView?.image = UIImage(named: patternsIteam)
 //        cell.imageView?.layer.cornerRadius = 100 / 100
 //        cell.imageView?.clipsToBounds = true
         return cell
