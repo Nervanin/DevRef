@@ -5,12 +5,17 @@
 //  Created by Alex on 24.05.2020.
 //  Copyright © 2020 Alex. All rights reserved.
 //
-
 import UIKit
 
 class ViewController: UIViewController{
     
     let patternsName = ["Фабричный метод","Абстрактная фабрика","Строитель","Прототип","Одиночка","Адаптер","Мост","Компоновщик","Декоратор","Фасад","Легковес","Заместитель","Цепочка обязанностей","Команда","Итератор","Посредник","Снимок","Наблюдатель","Состояние","Стратегия","Шаблонный метод","Посетитель"]
+    
+//    [
+//        ["Фабричный метод","Абстрактная фабрика","Строитель","Прототип","Одиночка"],
+//        ["Адаптер","Мост","Компоновщик","Декоратор","Фасад","Легковес","Заместитель"],
+//        ["Цепочка обязанностей","Команда","Итератор","Посредник","Снимок","Наблюдатель","Состояние","Стратегия","Шаблонный метод","Посетитель"]
+//    ]
 
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,7 +32,7 @@ class ViewController: UIViewController{
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath )
     let patternsIteam = patternsName[indexPath.row]
       cell.textLabel?.text = patternsIteam
-      cell.imageView?.image = UIImage(named: patternsIteam)
+      //cell.imageView?.image = UIImage(named: patternsIteam)
         return cell
       }
   }
