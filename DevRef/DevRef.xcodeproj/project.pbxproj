@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA7445D524B90A0800E93254 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7445D424B90A0800E93254 /* Data.swift */; };
 		FA88F45C2478359300F73B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88F45B2478359300F73B47 /* AppDelegate.swift */; };
 		FA88F45E2478359300F73B47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88F45D2478359300F73B47 /* SceneDelegate.swift */; };
 		FA88F4632478359300F73B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88F4612478359300F73B47 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA7445D424B90A0800E93254 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FA88F4582478359300F73B47 /* DevRef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevRef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA88F45B2478359300F73B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA88F45D2478359300F73B47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				FA88F45B2478359300F73B47 /* AppDelegate.swift */,
 				FA88F45D2478359300F73B47 /* SceneDelegate.swift */,
 				FABF7CC2247AE9F100CB8635 /* ViewController.swift */,
+				FA7445D424B90A0800E93254 /* Data.swift */,
 				FA88F4612478359300F73B47 /* Main.storyboard */,
 				FA88F4642478359600F73B47 /* Assets.xcassets */,
 				FA88F4662478359600F73B47 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				FABF7CC3247AE9F100CB8635 /* ViewController.swift in Sources */,
 				FA88F45C2478359300F73B47 /* AppDelegate.swift in Sources */,
 				FA88F45E2478359300F73B47 /* SceneDelegate.swift in Sources */,
+				FA7445D524B90A0800E93254 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
