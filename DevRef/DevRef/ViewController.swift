@@ -6,6 +6,7 @@
 //  Copyright © 2020 Alex. All rights reserved.
 //
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController{
     
