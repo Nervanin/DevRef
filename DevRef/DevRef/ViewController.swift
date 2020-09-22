@@ -10,6 +10,8 @@ import SnapKit
 
 class ViewController: UIViewController{
     
+    let tableView = UITableView()
+    
     let patterns = [Pattern(title: "Порождающие",
                                  names: ["Фабричный метод","Абстрактная фабрика","Строитель","Прототип","Одиночка"]),
                         Pattern(title: "Структурные",
@@ -17,9 +19,22 @@ class ViewController: UIViewController{
                         Pattern(title: "Поведенческие",
                                  names:  ["Цепочка обязанностей","Команда","Итератор","Посредник","Снимок","Наблюдатель","Состояние","Стратегия","Шаблонный метод","Посетитель"])]
     
+    
     override func viewDidLoad() {
+        tableView.dataSource = self
         super.viewDidLoad()
+        setupTableView()
     }
+    func setupTableView(){
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    }
+    
 }
 
   extension ViewController: UITableViewDataSource{
