@@ -20,19 +20,19 @@ class ViewController: UIViewController{
                                  names:  ["Цепочка обязанностей","Команда","Итератор","Посредник","Снимок","Наблюдатель","Состояние","Стратегия","Шаблонный метод","Посетитель"])]
     
     
+    let cellReuseIdentifier = "cell"
+    
     override func viewDidLoad() {
-        tableView.dataSource = self
         super.viewDidLoad()
+        tableView.dataSource = self
         setupTableView()
     }
     func setupTableView(){
         view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
 }
@@ -51,7 +51,7 @@ class ViewController: UIViewController{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath )
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath )
         let patternsIteam = patterns.map{$0}[indexPath.section].names[indexPath.row]
         cell.textLabel?.text = patternsIteam
         cell.imageView?.image = UIImage(named: patternsIteam)
