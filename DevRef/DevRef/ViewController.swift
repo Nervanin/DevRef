@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController{
+final class ViewController: UIViewController {
     
-    let tableView = UITableView()
+    private let tableView: UITableView? = UITableView()
     
-    let patterns = [Pattern(title: "Порождающие",
+    private let patterns = [Pattern(title: "Порождающие",
                                  names: ["Фабричный метод","Абстрактная фабрика","Строитель","Прототип","Одиночка"]),
                         Pattern(title: "Структурные",
                                  names:["Адаптер","Мост","Компоновщик","Декоратор","Фасад","Легковес","Заместитель"]),
@@ -20,19 +20,21 @@ class ViewController: UIViewController{
                                  names:  ["Цепочка обязанностей","Команда","Итератор","Посредник","Снимок","Наблюдатель","Состояние","Стратегия","Шаблонный метод","Посетитель"])]
     
     
-    let cellReuseIdentifier = "cell"
+    private let cellReuseIdentifier = "cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
+        tableView?.dataSource = self
+        tableView?.delegate = self
         setupTableView()
     }
-    func setupTableView(){
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
+    
+    private func setupTableView() {
+        view.addSubview(tableView!)
+        tableView?.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
 }
@@ -59,3 +61,18 @@ class ViewController: UIViewController{
         
     }
 }
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "DetailsVC", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "DetailsVC")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
+//open -
+//public -
+//internal -
+//private -
+//fileprivate -
