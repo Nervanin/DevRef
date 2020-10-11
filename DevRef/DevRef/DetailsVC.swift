@@ -15,12 +15,22 @@ class DetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
         
+    }
+    func setupTableView() {
+        view.addSubview(detailsLabel)
+        detailsLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            
+            
+            
+        }
           
     
-    let labelFrame = CGRect(x:150 , y:30, width:50, height:50)
-
-    detailsLabel.frame = labelFrame
+//    let labelFrame = CGRect(x:150 , y:30, width:50, height:50)
+//
+//    detailsLabel.frame = labelFrame
         
         
         detailsLabel.numberOfLines = 0
@@ -42,7 +52,21 @@ class DetailsVC: UIViewController {
 //        //отступ тени
         detailsLabel.center = self.view.center
         //настройка лейбла по центру
-        view.addSubview(detailsLabel)
+            
+            
+            
+            
+            
+//        view.addSubview(detailsLabel)
+//
+//            detailsLabel.snp.makeConstraints { (make) in
+//                  let superView = view!
+//                  make.left.equalTo(superView).offset(10)
+//                  make.right.equalTo(superView).offset(-10)
+//                  make.centerY.equalTo(superView)
+//              }
+
+
     }
     
 
