@@ -16,8 +16,19 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        
+        self.background()
     }
+    
+    
+    func background() {
+
+    var imageView : UIImageView
+        imageView  = UIImageView(frame:CGRect(x: 80, y: 170, width: 250, height: 250));
+    imageView.image = UIImage(named:"Абстрактная фабрика.png")
+    self.view.addSubview(imageView)
+
+    }
+    
     func setupTableView() {
         view.addSubview(detailsLabel)
         detailsLabel.snp.makeConstraints { make in
