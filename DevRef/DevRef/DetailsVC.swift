@@ -21,17 +21,11 @@ class DetailsVC: UIViewController {
     func setupTableView() {
         view.addSubview(detailsLabel)
         detailsLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(view).inset(UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
             
             
             
         }
-          
-    
-//    let labelFrame = CGRect(x:150 , y:30, width:50, height:50)
-//
-//    detailsLabel.frame = labelFrame
-        
         
         detailsLabel.numberOfLines = 0
         //метод отображает линии лайбле(по умолчанию стоит 1)/ставим 0 - делаем динамический текст
@@ -52,21 +46,6 @@ class DetailsVC: UIViewController {
 //        //отступ тени
         detailsLabel.center = self.view.center
         //настройка лейбла по центру
-            
-            
-            
-            
-            
-//        view.addSubview(detailsLabel)
-//
-//            detailsLabel.snp.makeConstraints { (make) in
-//                  let superView = view!
-//                  make.left.equalTo(superView).offset(10)
-//                  make.right.equalTo(superView).offset(-10)
-//                  make.centerY.equalTo(superView)
-//              }
-
-
     }
     
 
