@@ -66,15 +66,10 @@ final class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    
         let test = patterns.map{$0}[indexPath.section].names[indexPath.row]
-    
-        
         let storyboard = UIStoryboard(name: "DetailsVC", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "DetailsVC") as? DetailsVC
 //        print("секция \(indexPath.section) строка\(indexPath.row)")
-//
         vc?.detailsLabel.text = test
         
         self.navigationController?.pushViewController(vc!, animated: true)
