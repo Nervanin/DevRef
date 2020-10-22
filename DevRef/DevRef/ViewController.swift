@@ -55,6 +55,8 @@ final class ViewController: UIViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath )
         let patternsIteam = patterns.map{$0}[indexPath.section].names[indexPath.row]
+       // print(patternsIteam)
+//        patternsIteam = "123"
         cell.textLabel?.text = patternsIteam
         cell.imageView?.image = UIImage(named: patternsIteam)
         return cell
@@ -64,11 +66,21 @@ final class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    
+        let test = patterns.map{$0}[indexPath.section].names[indexPath.row]
+    
+        
         let storyboard = UIStoryboard(name: "DetailsVC", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "DetailsVC")
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard.instantiateViewController(identifier: "DetailsVC") as? DetailsVC
+//        print("секция \(indexPath.section) строка\(indexPath.row)")
+//
+        vc?.detailsLabel.text = test
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
+
 
 
 //open -

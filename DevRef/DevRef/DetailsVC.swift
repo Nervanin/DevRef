@@ -42,7 +42,7 @@ class DetailsVC: UIViewController {
         //метод отображает линии лайбле(по умолчанию стоит 1)/ставим 0 - делаем динамический текст
         detailsLabel.lineBreakMode = .byWordWrapping
         //переход слов на новую строку как именно
-        detailsLabel.text = "IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER"
+//        detailsLabel.text = "IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER"
         detailsLabel.adjustsFontSizeToFitWidth = true
         //если больше текста чем вмешается в лайбл то уменьшается шрифт для вмешения текста
         detailsLabel.sizeToFit()
