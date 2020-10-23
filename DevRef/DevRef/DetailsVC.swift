@@ -11,11 +11,14 @@ import SnapKit
 
 class DetailsVC: UIViewController {
     
+    let descriptionPattern = UILabel()
+    
     let detailsLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupTableView2()
         self.background()
     }
     
@@ -93,7 +96,56 @@ class DetailsVC: UIViewController {
 //        //отступ тени
         detailsLabel.center = self.view.center
         //настройка лейбла по центру
+        
     }
     
+        func setupTableView2(){
+    view.addSubview(descriptionPattern)
+    descriptionPattern.snp.makeConstraints{make in
+        make.centerY.centerX.equalToSuperview().inset(UIEdgeInsets(top: -200, left: 0, bottom: 0, right: 0))
 
+    }
+        
+        
+        
+//        { make in
+//        make.edges.equalTo(view).inset(UIEdgeInsets(top: -700, left: 100, bottom: 0, right: 104))
+//
+//    }
+//
+        
+        
+        
+//        {make in
+//        make.centerY.centerX.equalToSuperview().inset(UIEdgeInsets(top: 400, left: 100, bottom: 0, right: 100))
+//
+//    }
+    
+    
+        descriptionPattern.numberOfLines = 0
+    //метод отображает линии лайбле(по умолчанию стоит 1)/ставим 0 - делаем динамический текст
+        descriptionPattern.lineBreakMode = .byWordWrapping
+    //переход слов на новую строку как именно
+        descriptionPattern.text = "IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER "
+        descriptionPattern.adjustsFontSizeToFitWidth = true
+    //если больше текста чем вмешается в лайбл то уменьшается шрифт для вмешения текста
+        descriptionPattern.sizeToFit()
+    //показывает столько слов сколько есть в лайбле
+        descriptionPattern.font = UIFont.boldSystemFont(ofSize: 14)
+    //настройка размера шрифта
+        detailsLabel.textColor = UIColor.black
+    //цвет
+//        detailsLabel.shadowColor = UIColor.red
+    //окантовка текста
+//        detailsLabel.shadowOffset = CGSize(width: 0, height: 0)
+    //отступ тени
+        descriptionPattern.center = self.view.center
+    //настройка лейбла по центру
+        
+        
+        
+    }
+        
 }
+    
+
