@@ -67,16 +67,21 @@ class DetailsVC: UIViewController {
     func setupTableView2(){
         view.addSubview(descriptionPattern)
                 descriptionPattern.snp.makeConstraints { make in
-                    make.edges.equalTo(view).inset(UIEdgeInsets(top: 330, left: 15, bottom: 0, right: 15))
-        
+                    
+                    
+                    make.size.equalTo(descriptionPattern)
+                    make.top.equalTo(330)
+                    make.left.equalTo(10)
+                    make.right.equalTo(-10)
+
                 }
         
         descriptionPattern.numberOfLines = 0
     //метод отображает линии лайбле(по умолчанию стоит 1)/ставим 0 - делаем динамический текст
         descriptionPattern.lineBreakMode = .byWordWrapping
     //переход слов на новую строку как именно
-        descriptionPattern.text = "IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS  IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER че ты тут забыл?"
-//        descriptionPattern.adjustsFontSizeToFitWidth = true
+        descriptionPattern.text = "IOS DEVELOPER IOS "
+        descriptionPattern.adjustsFontSizeToFitWidth = true
     //если больше текста чем вмешается в лайбл то уменьшается шрифт для вмешения текста
         descriptionPattern.sizeToFit()
     //показывает столько слов сколько есть в лайбле
