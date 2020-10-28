@@ -68,7 +68,6 @@ class DetailsVC: UIViewController {
         view.addSubview(descriptionPattern)
                 descriptionPattern.snp.makeConstraints { make in
                     
-                    
                     make.size.equalTo(descriptionPattern)
                     make.top.equalTo(330)
                     make.left.equalTo(10)
@@ -80,7 +79,7 @@ class DetailsVC: UIViewController {
     //метод отображает линии лайбле(по умолчанию стоит 1)/ставим 0 - делаем динамический текст
         descriptionPattern.lineBreakMode = .byWordWrapping
     //переход слов на новую строку как именно
-        descriptionPattern.text = "IOS DEVELOPER IOS "
+//        descriptionPattern.text = "IOS DEVELOPER IOS"
         descriptionPattern.adjustsFontSizeToFitWidth = true
     //если больше текста чем вмешается в лайбл то уменьшается шрифт для вмешения текста
         descriptionPattern.sizeToFit()
