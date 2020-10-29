@@ -49,13 +49,13 @@ final class ViewController: UIViewController {
     
     
     private let cellReuseIdentifier = "cell"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.dataSource = self
         tableView?.delegate = self
         setupTableView()
     }
+    
     
     private func setupTableView() {
         view.addSubview(tableView!)
@@ -64,7 +64,6 @@ final class ViewController: UIViewController {
         }
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
-    
 }
 
   extension ViewController: UITableViewDataSource{
@@ -72,13 +71,16 @@ final class ViewController: UIViewController {
         return patterns.map{$0}[section].names.count
     }
     
+    
     func numberOfSections(in: UITableView) -> Int {
         return patterns.count
     }
     
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return patterns.map{$0}[section].title
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath )
@@ -88,31 +90,19 @@ final class ViewController: UIViewController {
         cell.textLabel?.text = patternsIteam
         cell.imageView?.image = UIImage(named: patternsIteam)
         return cell
-        
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let test = patterns.map{$0}[indexPath.section].names[indexPath.row]
-        let test2 = patterns.map{$0}[indexPath.section].description[indexPath.row]
-
-        let test3 = patterns.map{$0}[indexPath.section].names[indexPath.row]
-
-        
+        let patternHeaderVCAndImage = patterns.map{$0}[indexPath.section].names[indexPath.row]
+        let patternDescriptionVC = patterns.map{$0}[indexPath.section].description[indexPath.row]
         let storyboard = UIStoryboard(name: "DetailsVC", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "DetailsVC") as? DetailsVC
 //        print("секция \(indexPath.section) строка\(indexPath.row)")
-        vc?.detailsLabel.text = test
-        vc?.descriptionPattern.text = test2
-        
-        
-        vc?.imagetest.image = UIImage(named: test3)
-        
-        
-//        vc?.imagetest.image = test3
-//        vc?.imagetest.image = UIImage
-        
+        vc?.headerPatternVC.text = patternHeaderVCAndImage
+        vc?.descriptionPatternVC.text = patternDescriptionVC
+        vc?.imagePatternVC.image = UIImage(named: patternHeaderVCAndImage)
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
