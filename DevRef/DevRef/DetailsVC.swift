@@ -15,26 +15,31 @@ class DetailsVC: UIViewController {
     
     let detailsLabel = UILabel()
     
+    let imagetest = UIImageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupTableView2()
-        self.background()
+        testImg()
+//        self.background()
     }
 
-    func background() {
+    func testImg() {
         
-        var imageView : UIImageView
+//        var imagetest = UIImageView()
+//        var imageView : UIImageView
         
-        imageView  = UIImageView()
-        imageView.snp.makeConstraints { (make) in
+//        imageView  = UIImageView()
+//        imageView
+            imagetest.snp.makeConstraints { (make) in
             make.left.equalTo(view.snp.left).offset(100)
             make.centerY.centerX.equalTo(self.view).inset(UIEdgeInsets(top: -445, left: 0, bottom: 0, right: 0))
             make.width.height.equalTo(200)
     
-            imageView.image = UIImage(named:"Абстрактная фабрика.png")
+//            imagetest.image = UIImage(named:"Абстрактная фабрика.png")
             
-            self.view.addSubview(imageView)
+            self.view.addSubview(imagetest)
         }
     }
     func setupTableView() {
