@@ -82,6 +82,7 @@ final class ViewController: UIViewController {
     }
     
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath )
         let patternsIteam = patterns.map{$0}[indexPath.section].names[indexPath.row]
@@ -93,8 +94,10 @@ final class ViewController: UIViewController {
     }
 }
 
+
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let patternHeaderVCAndImage = patterns.map{$0}[indexPath.section].names[indexPath.row]
         let patternDescriptionVC = patterns.map{$0}[indexPath.section].description[indexPath.row]
         let storyboard = UIStoryboard(name: "DetailsVC", bundle: nil)

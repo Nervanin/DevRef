@@ -17,13 +17,13 @@ class DetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customizationImage()
-        headerCustomization()
+        customizationImageVC()
+        customizationHeaderVC()
         customizationDescriptionPatternVC()
     }
     
     
-    func customizationImage() {
+    func customizationImageVC() {
         self.view.addSubview(imagePatternVC)
         imagePatternVC.snp.makeConstraints { (make) in
             make.left.equalTo(view.snp.left).offset(100)
@@ -33,7 +33,7 @@ class DetailsVC: UIViewController {
     }
     
     
-    func headerCustomization() {
+    func customizationHeaderVC() {
         view.addSubview(headerPatternVC)
         headerPatternVC.snp.makeConstraints{make in
             make.centerY.centerX.equalToSuperview().inset(UIEdgeInsets(top: -685, left: 100, bottom: 0, right: 100))
