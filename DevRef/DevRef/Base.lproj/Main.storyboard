@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wa4-2L-wsj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uHX-Mb-eRG">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,42 +7,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dNG-jH-8XN">
+            <objects>
+                <navigationController id="uHX-Mb-eRG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uav-Tf-Mgv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wa4-2L-wsj" kind="relationship" relationship="rootViewController" id="rwy-7c-cey"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7P5-K8-nUZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2505" y="-224"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="zmf-It-AcC">
             <objects>
                 <viewController id="wa4-2L-wsj" customClass="ViewController" customModule="DevRef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1as-ts-eeY">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="cell" id="1as-ts-eeY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4UH-ds-l4m">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="8qI-Kq-AsB">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8qI-Kq-AsB" id="FKv-hG-UGL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="wa4-2L-wsj" id="sc1-wA-q4J"/>
-                                    <outlet property="delegate" destination="wa4-2L-wsj" id="YzN-QI-y3S"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="4UH-ds-l4m" firstAttribute="bottom" secondItem="TUb-WC-QN4" secondAttribute="bottom" id="7qO-Lt-0JZ"/>
-                            <constraint firstItem="4UH-ds-l4m" firstAttribute="top" secondItem="TUb-WC-QN4" secondAttribute="top" id="A4f-Zt-fDZ"/>
-                            <constraint firstItem="4UH-ds-l4m" firstAttribute="trailing" secondItem="TUb-WC-QN4" secondAttribute="trailing" id="f5D-eQ-KQF"/>
-                            <constraint firstItem="4UH-ds-l4m" firstAttribute="leading" secondItem="TUb-WC-QN4" secondAttribute="leading" id="p81-aG-1i6"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TUb-WC-QN4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cZg-A2-aAj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m54-ih-CD5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
