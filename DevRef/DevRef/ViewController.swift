@@ -10,12 +10,12 @@ import SnapKit
 
 final class ViewController: UIViewController {
     
-    private let tableView: UITableView? = UITableView()
+    private let tableView: UITableView = UITableView()
     
     private let patterns = [Pattern(title: "Порождающие",
                                     names: ["Фабричный метод","Абстрактная фабрика","Строитель","Прототип","Одиночка"],
                                     
-                                    description: ["Фабричный метод - это порождающий паттерн проектирования, который определяет общий интерфейс для создания объектов в суперклассе, позволяя подклассам изменять тип создаваемых объектов.Представьте, что вы создаёте программу управления грузовыми перевозками. Сперва вы рассчитываете перевозить товары только на автомобилях. Поэтому весь ваш код работает с объектами класса Грузовик.В какой-то момент ваша программа становится настолько известной, что морские перевозчики выстраиваются в очередь и просят добавить поддержку морской логистики в программу.Отличные новости, правда?! Но как насчёт кода? Большая часть существующего кода жёстко привязана к классам Грузовиков. Чтобы добавить в программу классы морских Судов, понадобится перелопатить всю программу. Более того, если вы потом решите добавить в программу ещё один вид транспорта, то всю эту работу придётся повторить.В итоге вы получите ужасающий код, наполненный условными операторами, которые выполняют то или иное действие, в зависимости от класса транспорта.Паттерн Фабричный метод предлагает создавать объекты не напрямую, используя оператор new, а через вызов особого фабричного метода. Не пугайтесь, объекты всё равно будут создаваться при помощи new, но делать это будет фабричный метод.На первый взгляд, это может показаться бессмысленным: мы просто переместили вызов конструктора из одного конца программы в другой. Но теперь вы сможете переопределить фабричный метод в подклассе, чтобы изменить тип создаваемого продукта.Чтобы эта система заработала, все возвращаемые объекты должны иметь общий интерфейс. Подклассы смогут производить объекты различных классов, следующих одному и тому же интерфейсу.Например, классы Грузовик и Судно реализуют интерфейс Транспорт с методом доставить. Каждый из этих классов реализует метод по-своему: грузовики везут грузы по земле, а суда — по морю. Фабричный метод в классе ДорожнойЛогистики вернёт объект-грузовик, а класс МорскойЛогистики — объект-судно.",
+                                    description: ["Фабричный метод - это порождающий паттерн проектирования, который определяет общий интерфейс для создания объектов в суперклассе, позволяя подклассам изменять тип создаваемых объектов",
                                                   "Абстрактная фабрика — это порождающий паттерн проектирования, который позволяет создавать семейства связанных объектов, не привязываясь к конкретным классам создаваемых объектов.",
                                                   "Строитель - это порождающий паттерн проектирования, который позволяет создавать сложные объекты пошагово. Строитель даёт возможность использовать один и тот же код строительства для получения разных представлений объектов.",
                                                   "Прототип — это порождающий паттерн проектирования, который позволяет копировать объекты, не вдаваясь в подробности их реализации.",
@@ -51,18 +51,18 @@ final class ViewController: UIViewController {
     private let cellReuseIdentifier = "cell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView?.dataSource = self
-        tableView?.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         setupTableView()
     }
     
     
     private func setupTableView() {
-        view.addSubview(tableView!)
-        tableView?.snp.makeConstraints { make in
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
 }
 
@@ -76,7 +76,7 @@ final class ViewController: UIViewController {
         return patterns.count
     }
     
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return patterns.map{$0}[section].title
     }
@@ -86,8 +86,6 @@ final class ViewController: UIViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath )
         let patternsIteam = patterns.map{$0}[indexPath.section].names[indexPath.row]
-       // print(patternsIteam)
-//        patternsIteam = "123"
         cell.textLabel?.text = patternsIteam
         cell.imageView?.image = UIImage(named: patternsIteam)
         return cell
@@ -98,14 +96,13 @@ final class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let patternHeaderVCAndImage = patterns.map{$0}[indexPath.section].names[indexPath.row]
+        let patternHeaderAndImage = patterns.map{$0}[indexPath.section].names[indexPath.row]
         let patternDescriptionVC = patterns.map{$0}[indexPath.section].description[indexPath.row]
         let storyboard = UIStoryboard(name: "DetailsVC", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "DetailsVC") as? DetailsVC
-//        print("секция \(indexPath.section) строка\(indexPath.row)")
-        vc?.headerPatternVC.text = patternHeaderVCAndImage
-        vc?.descriptionPatternVC.text = patternDescriptionVC
-        vc?.imagePatternVC.image = UIImage(named: patternHeaderVCAndImage)
+        vc?.headerLabel.text = patternHeaderAndImage
+        vc?.descriptionLabel.text = patternDescriptionVC
+        vc?.imageView.image = UIImage(named: patternHeaderAndImage)
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

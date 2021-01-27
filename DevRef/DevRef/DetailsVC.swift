@@ -11,73 +11,61 @@ import SnapKit
 
 class DetailsVC: UIViewController {
     
-    let imagePatternVC = UIImageView()
-    let headerPatternVC = UILabel()
-    let descriptionPatternVC = UILabel()
+    let imageView = UIImageView()
+    let headerLabel = UILabel()
+    let descriptionLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customizationImageVC()
-        customizationHeaderVC()
-        customizationDescriptionPatternVC()
+        setupViews()
     }
     
-    
-    func customizationImageVC() {
-        self.view.addSubview(imagePatternVC)
-        imagePatternVC.snp.makeConstraints { (make) in
-            make.left.equalTo(view.snp.left).offset(100)
-            make.centerY.centerX.equalTo(self.view).inset(UIEdgeInsets(top: -445, left: 0, bottom: 0, right: 0))
-            make.width.height.equalTo(200)
+    func setupViews(){
+        
+        view.addSubview(headerLabel)
+        headerLabel.snp.makeConstraints{ make in
+        make.centerX.equalToSuperview()
+        make.top.equalTo(100)
+        make.left.equalTo(100)
         }
-    }
-    
-    
-    func customizationHeaderVC() {
-        view.addSubview(headerPatternVC)
-        headerPatternVC.snp.makeConstraints{make in
-            make.centerY.centerX.equalToSuperview().inset(UIEdgeInsets(top: -685, left: 100, bottom: 0, right: 100))
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(127.5)
+            make.left.equalTo(100)
         }
-        headerPatternVC.numberOfLines = 0
+        view.addSubview(descriptionLabel)
+        descriptionLabel.snp.makeConstraints {make in
+            make.size.equalTo(descriptionLabel)
+            make.top.equalTo(330)
+            make.left.equalTo(10)
+            make.right.equalTo(-10)
+        }
+        
+        headerLabel.numberOfLines = 0
 //      the method displays the lines of the label (the default is 1) / set to 0 - we make dynamic text
-//        detailsLabel.text = "IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER IOS DEVELOPER"
-        headerPatternVC.adjustsFontSizeToFitWidth = true
+        headerLabel.adjustsFontSizeToFitWidth = true
 //      if there is more text than fits into the label, then the font is reduced to fit the text
-        headerPatternVC.sizeToFit()
+        headerLabel.sizeToFit()
 //      shows as many words as there are in the label
-        headerPatternVC.font = UIFont.boldSystemFont(ofSize: 20)
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 20)
 //      setting font size
-        headerPatternVC.textColor = UIColor.black
+        headerLabel.textColor = UIColor.black
 //      Colour
-        headerPatternVC.center = self.view.center
-//      center label setting
-    }
+        headerLabel.textAlignment = .center
     
-    
-    func customizationDescriptionPatternVC(){
-        view.addSubview(descriptionPatternVC)
-                descriptionPatternVC.snp.makeConstraints { make in
-                    make.size.equalTo(descriptionPatternVC)
-                    make.top.equalTo(330)
-                    make.left.equalTo(10)
-                    make.right.equalTo(-10)
-                }
-        descriptionPatternVC.numberOfLines = 0
+        descriptionLabel.numberOfLines = 0
 //      the method displays the lines of the label (the default is 1) / set to 0 - we make
-        descriptionPatternVC.lineBreakMode = .byWordWrapping
+        descriptionLabel.lineBreakMode = .byWordWrapping
 //      transition of words to a new line exactly how
-//      descriptionPattern.text = "IOS DEVELOPER IOS"
-        descriptionPatternVC.adjustsFontSizeToFitWidth = true
+        descriptionLabel.adjustsFontSizeToFitWidth = true
 //      if there is more text than fits into the label, then the font is reduced to fit the text
-        descriptionPatternVC.sizeToFit()
+        descriptionLabel.sizeToFit()
 //      shows as many words as there are in the label
-        descriptionPatternVC.font = UIFont.boldSystemFont(ofSize: 14)
+        descriptionLabel.font = UIFont.boldSystemFont(ofSize: 14)
 //      setting font size
-        descriptionPatternVC.textColor = UIColor.black
+        descriptionLabel.textColor = UIColor.black
 //      Colour
-        descriptionPatternVC.center = self.view.center
-//      center label setting
+        
     }
 }
-    
-

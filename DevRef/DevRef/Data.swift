@@ -11,5 +11,5 @@ import Foundation
 struct Pattern {
     var title: String
     var names: [String]
-    let description : [String]
+    let description: [String]
 }
